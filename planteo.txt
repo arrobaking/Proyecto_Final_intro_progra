@@ -1,0 +1,25 @@
+BORRADOR
+
+Crear una app para elegir películas según criterios como gustos (género, actores, director, etc), y que la respuesta incluya en qué plataforma se encuentra (ejemplo: Netflix o HBO) y toda la info relevante de la película (es decir, además de los datos de género, actores, director, etc que se pueden usar como criterio de elección, también la duración, calificación, año...).
+
+Pasos:
+
+1) Crear "base de datos" (archivo csv) de unas cuantas películas (tentativamente 25, tentativamente los siguientes criterios):
+
+Género (drama, comedia, documental...)
+*Formato (largometraje, corto, serie)
+Duración
+Actores protagonistas (quizá 2)
+Director
+Año
+Calificación (?)
+Plataformas en que está (Netflix, Max, Disney, Apple...)
+2) Crear un algoritmo para que cuando el usuario dicte sus criterios, la app muestre [quizá unos 5, máximo] resultados que calcen y la información de las mismas. ***Optativamente puede indicar si uno de los resultados calza excelente (todos los criterios), bien (mayoría de criterios) o regular (solo uno de los criterios).
+
+3) ***Optativamente, añadir la capacidad de incluir nuevas películas en la "base de datos" (por definir si se quiere incluir esta capacidad).
+
+4) ***Optativo: "recordar" películas ya vistas, para no recomendar nuevamente (necesitaría manejar registro de usuarios).
+
+***Guardar recomendaciones hechas, en un archivo.
+
+***Usar un número identificador para distinguir usuarios.
