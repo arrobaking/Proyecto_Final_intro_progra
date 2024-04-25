@@ -2,11 +2,21 @@ from inventario import Inventario
 
 class Main():
   
-  def __init__(self):
-    self.PINdiario  = 1234
-    self.inventario = inventario
-    self.operacion  = 3
-    self.formato    = 4
+  def __init__(self, archivo_peliculas, archivo_animaciones, archivo_series):
+    self.archivo_peliculas    = archivo_peliculas
+    self.archivo_animaciones  = archivo_animaciones
+    self.archivo_series       = archivo_series
+
+    self.inventario = Inventario(self.archivo_peliculas, self.archivo_animaciones, self.archivo_series)
+
+    self.PINdiario    = 1234
+    self.operacion    = 3
+    self.formato      = 4
+    self.genero       = 10
+    self.tipo_artista = 3
+    self.eleccion     = 2
+    self.artista      = ""
+    self.criterios    = [self.formato, self.genero, self.tipo_artista, self.artista]
     
   def iniciar(self):
     print("\nBienvenido al catálogo de producciones audiovisuales de Melange Contents.")
@@ -30,6 +40,7 @@ class Main():
         print("\n¿Qué tipo de formato le apetece ver hoy?\n\t1) Película (\"live action\").\n\t2) Animación.\n\t3) Serie.")
         self.formato = int(input("Formato: "))
         self.recolectar_criterios(self.formato)
+        self.inventario.buscar(self.criterios)
                 
       elif (self.operacion == 2):
         print(f"\nMelange Suggestions (R) es una plataforma creada por Antonio Reyes en abril de 2024 usando lenguaje Python.")
@@ -49,9 +60,27 @@ class Main():
 \t8)  Sci-Fi.
 \t9)  Romance.
 \t10) Alternativo.""")
-    self.genero = input("Género: ")
+    self.genero = int(input("Género: "))
+    if formato == 1:
+      print("\n¿Para cuál tipo de artista desea que se realice la búsqueda?\n\t1) Actor/actriz.\n\t2) Director.\n\t3) Ninguno.")
+      self.tipo_artista = int(input("Tipo de artista: "))
+    elif formato == 2:
+      self.tipo_artista = 3
+    elif formato == 3:
+      print("\n¿Desea incluir algún actor/actriz en la búsqueda?\n\t1) Sí.\n\t2) No.")
+      self.eleccion = int(input("Elección: "))
+      if self.eleccion == 1:
+        self.tipo_artista = 1
+      else:
+        self.tipo_artista = 3
+    if self.tipo_artista == 1:
+      self.artista = input("Ingrese el nombre del actor/actriz que desea incluir en su búsqueda: ")
+    elif self.tipo_artista == 2:
+      self.artista = input("Ingrese el nombre del(la) director(a) que desea incluir en su búsqueda: ")
+    self.criterios = [formato, self.genero, self.tipo_artista, self.artista]
 
   def mostrar_resultados():
+    pass
 
   def terminar(self):
     print("\nPrograma cerrado. Hasta luego.\n")
