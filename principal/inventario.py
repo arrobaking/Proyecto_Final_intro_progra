@@ -3,6 +3,7 @@
 import csv
 
 from productos import Pelicula #, Animacion, Serie
+from resultado import Resultado
 
 class Inventario():
   
@@ -11,7 +12,6 @@ class Inventario():
     self.archivo_animaciones  = archivo_animaciones
     self.archivo_series       = archivo_series
 
-    self.pelicula   = Pelicula("a", "b", "c", "1", "d", "1", "e", "f", "g", "h")
     #self.animacion   = Animacion("", "", "", "", "")
     #self.serie   = Serie("", "", "", "", "", "")
     #self.criterios = [formato, self.genero, self.tipo_artista, self.artista]
@@ -20,15 +20,15 @@ class Inventario():
   def buscar(self, criterios):
     self.criterios = criterios
     if self.criterios[0] == 1: #formato es película
-      self.buscar_peliculas()
+      self.resultado = Resultado(*self.buscar_peliculas())
     elif self.criterios[0] == 2: #formato es animación
       self.buscar_animacion()
     elif self.criterios[0] == 3: #formato es serie
       self.buscar_serie()
+    return self.resultado
     
-    return resultados
-  
   def buscar_peliculas(self):
+    self.recomendaciones = []
     self.info_peliculas = open(self.archivo_peliculas, mode="r+")
     self.reader_peliculas  = csv.reader(self.info_peliculas,delimiter=",")
     self.previo_1 = open("previo_1.csv", mode="w+", newline="")
@@ -56,22 +56,33 @@ class Inventario():
 
     self.previo_2 = open("previo_2.csv", mode="r+")
     self.reader_previo_2  = csv.reader(self.previo_2,delimiter=",")
-    self.previo_3 = open("previo_3.csv", mode="w+", newline="")
-    self.writer_previo_3 = csv.writer(self.previo_3,delimiter=",")
-    self.previo_4 = open("previo_4.csv", mode="w+", newline="")
-    self.writer_previo_4 = csv.writer(self.previo_4,delimiter=",")
-    self.valor_mayor = 0
-    self.fila_temporal = []
+    self.ID_max_calificacion_1 = ""
+    self.ID_max_calificacion_2 = ""
+    self.ID_max_calificacion_3 = ""
+    self.max_calificacion = 0
     for fila in self.reader_previo_2:
-      if int(fila[4]) >= self.valor_mayor:
-        self.valor_mayor = int(fila[4])
-      else:
-        for fila in self.reader_previo_3:
-
-      self.writer_previo_3.writerow(fila)
-
+      if int(fila[4]) >= self.max_calificacion:
+        self.max_calificacion = int(fila[4])
+        self.ID_max_calificacion_1 = fila[0] #primera recomendación
+    self.max_calificacion = 0
+    for fila in self.reader_previo_2:
+      if fila[0] != self.ID_max_calificacion_1:
+        if int(fila[4]) >= self.max_calificacion:
+          self.max_calificacion = int(fila[4])
+          self.ID_max_calificacion_2 = fila[0] #segunda recomendación
+    self.max_calificacion = 0
+    for fila in self.reader_previo_2:
+      if (fila[0] != self.ID_max_calificacion_1) and (fila[0] != self.ID_max_calificacion_2):
+        if int(fila[4]) >= self.max_calificacion:
+          self.max_calificacion = int(fila[4])
+          self.ID_max_calificacion_3 = fila[0] #tercera recomendación
+    for fila in self.reader_previo_2:
+      if (fila[0] == self.ID_max_calificacion_1) or (fila[0] == self.ID_max_calificacion_2) or (fila[0] == self.ID_max_calificacion_3):
+        self.recomendaciones.append(fila)
     self.previo_2.close()
     
+    return self.recomendaciones
+
 
 """print('\nDetalles de la película:')
     myList = list(self.reader_peliculas)

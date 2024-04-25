@@ -1,4 +1,5 @@
 from inventario import Inventario
+from productos import Pelicula
 
 class Main():
   
@@ -6,6 +7,8 @@ class Main():
     self.archivo_peliculas    = archivo_peliculas
     self.archivo_animaciones  = archivo_animaciones
     self.archivo_series       = archivo_series
+
+    self.pelicula   = Pelicula("", "", "", "", "", "", "", "", "", "")
 
     self.inventario = Inventario(self.archivo_peliculas, self.archivo_animaciones, self.archivo_series)
 
@@ -40,7 +43,19 @@ class Main():
         print("\n¿Qué tipo de formato le apetece ver hoy?\n\t1) Película (\"live action\").\n\t2) Animación.\n\t3) Serie.")
         self.formato = int(input("Formato: "))
         self.recolectar_criterios(self.formato)
-        self.inventario.buscar(self.criterios)
+        self.resultado = self.inventario.buscar(self.criterios)
+        if self.formato == 1: #formato es película
+          print("Las recomendaciones para películas, de acuerdo con los criterios, son las siguientes:")
+          self.pelicula = Pelicula(*self.resultado.recomendacion_1)
+          self.pelicula.mostrar_detalles()
+          self.pelicula = Pelicula(*self.resultado.recomendacion_2)
+          self.pelicula.mostrar_detalles()
+          self.pelicula = Pelicula(*self.resultado.recomendacion_3)
+          self.pelicula.mostrar_detalles()
+        elif self.formato == 2: #formato es animación
+          pass
+        elif self.formato == 3: #formato es serie
+          pass
                 
       elif (self.operacion == 2):
         print(f"\nMelange Suggestions (R) es una plataforma creada por Antonio Reyes en abril de 2024 usando lenguaje Python.")
