@@ -8,8 +8,6 @@ class Main():
     self.archivo_animaciones  = archivo_animaciones
     self.archivo_series       = archivo_series
 
-    self.pelicula   = Pelicula("", "", "", "", "", "", "", "", "", "")
-
     self.inventario = Inventario(self.archivo_peliculas, self.archivo_animaciones, self.archivo_series)
 
     self.PINdiario    = 1234
@@ -45,13 +43,8 @@ class Main():
         self.recolectar_criterios(self.formato)
         self.resultado = self.inventario.buscar(self.criterios)
         if self.formato == 1: #formato es película
-          print("Las recomendaciones para películas, de acuerdo con los criterios, son las siguientes:")
-          self.pelicula = Pelicula(*self.resultado.recomendacion_1)
-          self.pelicula.mostrar_detalles()
-          self.pelicula = Pelicula(*self.resultado.recomendacion_2)
-          self.pelicula.mostrar_detalles()
-          self.pelicula = Pelicula(*self.resultado.recomendacion_3)
-          self.pelicula.mostrar_detalles()
+          print("Basado en sus criterios, las recomendaciones de películas serían:")
+          self.resultado.mostrar_resultado()
         elif self.formato == 2: #formato es animación
           pass
         elif self.formato == 3: #formato es serie

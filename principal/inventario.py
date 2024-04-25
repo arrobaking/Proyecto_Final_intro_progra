@@ -2,7 +2,6 @@
 
 import csv
 
-from productos import Pelicula #, Animacion, Serie
 from resultado import Resultado
 
 class Inventario():
@@ -20,9 +19,7 @@ class Inventario():
   def buscar(self, criterios):
     self.criterios = criterios
     if self.criterios[0] == 1: #formato es película
-      print(f"self.buscar_peliculas(): {self.buscar_peliculas()}")
-      
-      #self.resultado = Resultado(self.buscar_peliculas()[0], self.buscar_peliculas()[1], self.buscar_peliculas()[1])
+      self.resultado = Resultado(self.buscar_peliculas())
     elif self.criterios[0] == 2: #formato es animación
       self.buscar_animacion()
     elif self.criterios[0] == 3: #formato es serie
@@ -92,6 +89,7 @@ class Inventario():
     for fila in self.reader_previo_2:
       print("prueba 7")
       if (fila[0] == self.ID_max_calificacion_1) or (fila[0] == self.ID_max_calificacion_2) or (fila[0] == self.ID_max_calificacion_3):
+        self.recomendaciones.append(fila)
         self.recomendaciones.append(fila)
         print(f"recomendaciones {self.recomendaciones}")
     self.previo_2.close()
