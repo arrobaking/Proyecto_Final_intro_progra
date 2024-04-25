@@ -2,13 +2,13 @@
 #Primer Cuatrimestre 2024, Introducción a la Programación.
 #Alumno: Antonio Reyes
 
-#Archivo con la clase pricipal que controla el menú que interactúa con el usuario.
+#Archivo con la clase principal que controla el menú que interactúa con el usuario.
 
 import csv
 
-from clases_productos import Pelicula#, Animacion, Serie
+from clases_productos import Pelicula #, Animacion, Serie
 
-class Main:
+class Main():
   def __init__(self, archivo_peliculas, archivo_videos, archivo_canciones):
     self.archivo_peliculas  = archivo_peliculas
     self.archivo_videos     = archivo_videos
@@ -16,7 +16,7 @@ class Main:
     self.operacion          = 4
     self.tipo               = 4
     self.PINdiario          = 1234
-    self.pelicula           = Pelicula("", "", "", "", "", "", "")
+    self.pelicula           = Pelicula("a", "b", "c", "1", "d", "1", "e", "f", "g", "h")
     #self.animacion          = Animacion("", "", "", "", "")
     #self.serie              = Serie("", "", "", "", "", "")
 
@@ -48,8 +48,9 @@ class Main:
         if self.tipo == 1:
           self.info_peliculas = open(self.archivo_peliculas, mode="r+")
           self.reader_peliculas  = csv.reader(self.info_peliculas,delimiter=",")
-          print('Detalles de la película:')
-          self.pelicula = Pelicula(*(self.reader_peliculas[1]))
+          print('\nDetalles de la película:')
+          myList = list(self.reader_peliculas)
+          self.pelicula = Pelicula(*(myList[1]))
           self.pelicula.mostrar_detalles()
           self.info_peliculas.close()
 

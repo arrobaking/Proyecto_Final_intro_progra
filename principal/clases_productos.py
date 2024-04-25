@@ -13,15 +13,16 @@ class Producto:
     self.genero         = genero
     self.calificacion   = calificacion
     self.plataformas    = plataformas
-    self.diccionario_generos      = {'1': "Comedia",
-                                     '2': "Drama",
-                                     '3': "Acción",
-                                     '4': "Terror",
-                                     '5': "Fantasía",
-                                     '6': "Documental",
-                                     '7': "Familiar",
-                                     '8': "Sci-Fi",
-                                     '9': "Romance"}
+    self.diccionario_generos      = {'1' : "Comedia",
+                                     '2' : "Drama",
+                                     '3' : "Acción",
+                                     '4' : "Terror",
+                                     '5' : "Fantasía",
+                                     '6' : "Documental",
+                                     '7' : "Familiar",
+                                     '8' : "Sci-Fi",
+                                     '9' : "Romance",
+                                     '10': "Alternativo"}
     self.diccionario_plataformas  = {'1': "Disney+",
                                      '2': "Netflix",
                                      '3': "Max (HBO)",
@@ -59,19 +60,17 @@ class Pelicula(Producto):
       if num_plataforma == ".":
         pass
       else:
-        self.plataformas_str += ("\n" + self.diccionario_plataformas[num_plataforma])
+        self.plataformas_str += ("\n\t\t\t" + self.diccionario_plataformas[num_plataforma])
     return self.plataformas_str
     
   def mostrar_detalles(self):
-    self.definir_genero()
-    self.definir_plataformas()
-    print(f"\tTítulo:         {self.titulo}
-          \n\taño:            {self.anyo}
-          \n\tgéneros:        {self.definir_genero()}
-          \n\tdirector:       {self.director}
-          \n\tactores:        {self.actor1} y {self.actor2}
-          \n\tduración:       {self.duracion} minutos
-          \n\tdisponible en:  {self.definir_plataformas()}")
+    print(f"""\tTítulo:         {self.titulo}
+\taño:            {self.anyo}
+\tgéneros:        {self.definir_genero()}
+\tdirector:       {self.director}
+\tactores:        {self.actor1} y {self.actor2}
+\tduración:       {self.duracion} minutos
+\tdisponible en:  {self.definir_plataformas()}""")
 
 #class Animacion(Producto):
   
