@@ -7,7 +7,7 @@
 
 from clase_main import Main
 
-sesionActual = Main("info_peliculas.csv", "info_videos.csv", "info_canciones.csv")
+sesionActual = Main("info_peliculas.csv", "info_animaciones.csv", "info_series.csv")
 
 sesionActual.iniciar()
 sesionActual.operar()
