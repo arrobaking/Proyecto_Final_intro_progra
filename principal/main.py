@@ -43,7 +43,7 @@ class Main():
         self.recolectar_criterios(self.formato)
         self.resultado = self.inventario.buscar(self.criterios)
         if self.formato == 1: #formato es película
-          print("Basado en sus criterios, las recomendaciones de películas serían:")
+          
           self.resultado.mostrar_resultado()
         elif self.formato == 2: #formato es animación
           pass
