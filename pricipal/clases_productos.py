@@ -1,84 +1,82 @@
-#Código Ejercicio de Streaming con POO.
-#Primer Cuatrimestre 2024, Introducción a la Programación.
+#Proyecto Final: Recomendar qué ver en plataformas de streaming
+#Primer cuatrimestre 2024, Introducción a la Programación.
 #Alumno: Antonio Reyes
 
-#Archivo con las clases de productos usados: Película, Video y Canción.
+#Archivo con las clases para los formatos de productos: Película, Animación o Serie.
 
 class Producto:
   
-  def __init__(self, ID_producto, titulo, anyo):
-    self.ID_producto  = ID_producto
-    self.titulo       = titulo
-    self.anyo         = anyo
+  def __init__(self, ID_producto, titulo, anyo, generos, calificacion, plataformas):
+    self.ID_producto    = ID_producto
+    self.titulo         = titulo
+    self.anyo           = anyo
+    self.generos        = generos
+    self.calificacion   = calificacion
+    self.plataformas    = plataformas
+
+    self.diccionario_generos      = {'1': "Comedia",
+                                     '2': "Drama",
+                                     '3': "Acción",
+                                     '4': "Terror",
+                                     '5': "Fantasía",
+                                     '6': "Documental",
+                                     '7': "Familiar",
+                                     '8': "Sci-Fi",
+                                     '9': "Romance"}
+    self.diccionario_plataformas  = {'1': "Disney+",
+                                     '2': "Netflix",
+                                     '3': "Max (HBO)",
+                                     '4': "Prime Video (Amazon)",
+                                     '5': "Movistar Plus+",
+                                     '6': "Filmin",
+                                     '7': "Apple TV"}
+    
+    self.generos_str     = ""
+    self.plataformas_str = ""
   
-  def pedir_info(self):
+  def definir_generos():
+    pass
+
+  def definir_plataformas():
+    pass
+
+  def mostrar_detalles():
     pass
 
 class Pelicula(Producto):
   
-  def __init__(self, ID_producto, titulo, anyo, director, actor1, actor2, genero):
-    super().__init__(ID_producto, titulo, anyo)
+  def __init__(self, ID_producto, titulo, anyo, generos, calificacion, plataformas, director, actor1, actor2, duracion):
+    super().__init__(ID_producto, titulo, anyo, generos, calificacion, plataformas)
     self.director = director
-    self.actor1 = actor1
-    self.actor2 = actor2
-    self.genero = genero
+    self.actor1   = actor1
+    self.actor2   = actor2
+    self.duracion = duracion
   
-  def pedir_info(self):
-    self.titulo     = input("Escriba el título:        ")
-    self.anyo       = input("Escriba el año:           ")
-    self.director   = input("Escriba el director:      ")
-    self.actor1     = input("Escriba el primer actor:  ")
-    self.actor2     = input("Escriba el segundo actor: ")
-    self.genero     = input("Escriba el género:        ")
-  
-  def generar_lista(self):
-    self.lista_info = [self.ID_producto, self.titulo, self.anyo, self.director, self.actor1, self.actor2, self.genero]
-    return self.lista_info
-  
-  def mostrar_detalles(self):
-    self.generar_lista()
-    print(f"\tTítulo:   {self.lista_info[1]}\n\taño:      {self.lista_info[2]}\n\tdirector:   {self.lista_info[3]}\n\tactores:    {self.lista_info[4]} y {self.lista_info[5]}\n\tgénero:  {self.lista_info[6]}")
+  def definir_generos(self):
+    for num_genero in self.generos:
+      self.generos_str += ("\n" + self.diccionario_generos[num_genero])
+    return self.generos_str
 
-class Video(Producto):
-  
-  def __init__(self, ID_producto, titulo, anyo, autor, tema):
-    super().__init__(ID_producto, titulo, anyo)
-    self.autor = autor
-    self.tema = tema
-  
-  def pedir_info(self):
-    self.titulo   = input("Escriba el título: ")
-    self.anyo     = input("Escriba el año:    ")
-    self.autor    = input("Escriba el autor:  ")
-    self.tema     = input("Escriba el tema:   ")
-  
-  def generar_lista(self):
-    self.lista_info = [self.ID_producto, self.titulo, self.anyo, self.autor, self.tema]
-    return self.lista_info
-  
-  def mostrar_detalles(self):
-    self.generar_lista()
-    print(f"\tTítulo:   {self.lista_info[1]}\n\taño:      {self.lista_info[2]}\n\tautor:   {self.lista_info[3]}\n\ttema:    {self.lista_info[4]}")
+  def definir_plataformas(self):
+    for num_plataforma in self.plataformas:
+      self.plataformas_str += ("\n" + self.diccionario_plataformas[num_plataforma])
+    return self.plataformas_str
     
-class Cancion(Producto):
-  
-  def __init__(self, ID_producto, titulo, anyo, genero, album, artista):
-    super().__init__(ID_producto, titulo, anyo)
-    self.genero = genero
-    self.album = album
-    self.artista = artista
-  
-  def pedir_info(self):
-    self.titulo   = input("Escriba el título:  ")
-    self.anyo     = input("Escriba el año:     ")
-    self.genero   = input("Escriba el género:  ")
-    self.album    = input("Escriba el álbum:   ")
-    self.artista  = input("Escriba el artista: ")
-  
-  def generar_lista(self):
-    self.lista_info = [self.ID_producto, self.titulo, self.anyo, self.genero, self.album, self.artista]
-    return self.lista_info
-  
   def mostrar_detalles(self):
-    self.generar_lista()
-    print(f"\tTítulo:   {self.lista_info[1]}\n\taño:      {self.lista_info[2]}\n\tgénero:   {self.lista_info[3]}\n\tálbum:    {self.lista_info[4]}\n\tartista:  {self.lista_info[5]}")
+    self.definir_generos()
+    self.definir_plataformas()
+    print(f"\tTítulo:         {self.titulo}
+          \n\taño:            {self.anyo}
+          \n\tgéneros:        {self.definir_generos()}
+          \n\tdirector:       {self.director}
+          \n\tactores:        {self.actor1} y {self.actor2}
+          \n\tduración:       {self.duracion} minutos
+          \n\tdisponible en:  {self.definir_plataformas()}")
+
+#class Animacion(Producto):
+  
+  
+    
+#class Serie(Producto):
+  
+  
