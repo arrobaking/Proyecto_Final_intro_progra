@@ -79,6 +79,7 @@ class Inventario():
     for fila in self.reader_previo_2:
       if (fila[0] == self.ID_max_calificacion_1) or (fila[0] == self.ID_max_calificacion_2) or (fila[0] == self.ID_max_calificacion_3):
         self.recomendaciones.append(fila)
+        self.recomendaciones.append(fila)
     self.previo_2.close()
     
     return self.recomendaciones
