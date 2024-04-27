@@ -1,5 +1,3 @@
-BORRADOR
-
 Crear una app para elegir películas según criterios como gustos (género, actores, director, etc), y que la respuesta incluya en qué plataforma se encuentra (ejemplo: Netflix o HBO) y toda la info relevante de la película (es decir, además de los datos de género, actores, director, etc que se pueden usar como criterio de elección, también la duración, calificación, año...).
 
 Pasos:
