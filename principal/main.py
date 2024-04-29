@@ -42,13 +42,8 @@ class Main():
         self.formato = int(input("Formato: "))
         self.recolectar_criterios(self.formato)
         self.resultado = self.inventario.buscar(self.criterios)
-        if self.formato == 1:     #formato es película          
-          self.resultado.mostrar_resultado()
-        elif self.formato == 2:   #formato es animación
-          pass
-        elif self.formato == 3:   #formato es serie
-          pass
-                
+        self.resultado.mostrar_resultado()
+        
       elif (self.operacion == 2):
         print(f"\nMelange Suggestions (R) es una plataforma creada por Antonio Reyes en abril de 2024 usando lenguaje Python.")
       

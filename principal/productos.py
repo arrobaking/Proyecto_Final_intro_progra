@@ -66,7 +66,7 @@ class Pelicula(Producto):
   def mostrar_detalles(self):
     print(f"""\tTítulo:         {self.titulo}
 \taño:            {self.anyo}
-\tgéneros:        {self.definir_genero()}
+\tgénero:         {self.definir_genero()}
 \tdirector:       {self.director}
 \tactores:        {self.actor1} y {self.actor2}
 \tduración:       {self.duracion} minutos
@@ -94,10 +94,9 @@ class Pelicula(Producto):
   def mostrar_detalles(self):
     print(f"""\tTítulo:         {self.titulo}
 \taño:            {self.anyo}
-\tgéneros:        {self.definir_genero()}
-\tdirector:       {self.director}
-\tactores:        {self.actor1} y {self.actor2}
+\tgénero:         {self.definir_genero()}
 \tduración:       {self.duracion} minutos
+\tstudio:         {self.studio}
 \tdisponible en:  {self.definir_plataformas()}""")
     
 #class Serie(Producto):
@@ -123,8 +122,7 @@ class Pelicula(Producto):
   def mostrar_detalles(self):
     print(f"""\tTítulo:         {self.titulo}
 \taño:            {self.anyo}
-\tgéneros:        {self.definir_genero()}
-\tdirector:       {self.director}
+\tgénero:         {self.definir_genero()}
 \tactores:        {self.actor1} y {self.actor2}
-\tduración:       {self.duracion} minutos
+\ttemporadas:     {self.num_temporadas}
 \tdisponible en:  {self.definir_plataformas()}""")
