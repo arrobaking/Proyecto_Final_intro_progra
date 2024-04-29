@@ -13,15 +13,15 @@ class Resultado():
       print("\nBasado en sus criterios, las recomendaciones de películas serían:")
       for numero in range(self.cantidad_propuestas):
         self.pelicula = Pelicula(self.recomendaciones[numero][0],
-                                self.recomendaciones[numero][1],
-                                self.recomendaciones[numero][2],
-                                self.recomendaciones[numero][3],
-                                self.recomendaciones[numero][4],
-                                self.recomendaciones[numero][5],
-                                self.recomendaciones[numero][6],
-                                self.recomendaciones[numero][7],
-                                self.recomendaciones[numero][8],
-                                self.recomendaciones[numero][9])        
+                                 self.recomendaciones[numero][1],
+                                 self.recomendaciones[numero][2],
+                                 self.recomendaciones[numero][3],
+                                 self.recomendaciones[numero][4],
+                                 self.recomendaciones[numero][5],
+                                 self.recomendaciones[numero][6],
+                                 self.recomendaciones[numero][7],
+                                 self.recomendaciones[numero][8],
+                                 self.recomendaciones[numero][9])        
         print(f"---------- Propuesta número {numero+1} ----------")
         self.pelicula.mostrar_detalles()
         print("")

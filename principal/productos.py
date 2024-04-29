@@ -74,8 +74,57 @@ class Pelicula(Producto):
 
 #class Animacion(Producto):
   
+  def __init__(self, ID_producto, titulo, anyo, genero, calificacion, plataformas, duracion, studio):
+    super().__init__(ID_producto, titulo, anyo, genero, calificacion, plataformas)
+    self.duracion = duracion
+    self.studio   = studio
   
+  def definir_genero(self):
+    self.genero_str = self.diccionario_generos[self.genero]
+    return self.genero_str
+
+  def definir_plataformas(self):
+    for num_plataforma in self.plataformas:
+      if num_plataforma == ".":
+        pass
+      else:
+        self.plataformas_str += ("\n\t\t\t" + self.diccionario_plataformas[num_plataforma])
+    return self.plataformas_str
+    
+  def mostrar_detalles(self):
+    print(f"""\tTítulo:         {self.titulo}
+\taño:            {self.anyo}
+\tgéneros:        {self.definir_genero()}
+\tdirector:       {self.director}
+\tactores:        {self.actor1} y {self.actor2}
+\tduración:       {self.duracion} minutos
+\tdisponible en:  {self.definir_plataformas()}""")
     
 #class Serie(Producto):
+
+  def __init__(self, ID_producto, titulo, anyo, genero, calificacion, plataformas, actor1, actor2, num_temporadas):
+    super().__init__(ID_producto, titulo, anyo, genero, calificacion, plataformas)
+    self.actor1           = actor1
+    self.actor2           = actor2
+    self.num_temporadas   = num_temporadas
   
-  
+  def definir_genero(self):
+    self.genero_str = self.diccionario_generos[self.genero]
+    return self.genero_str
+
+  def definir_plataformas(self):
+    for num_plataforma in self.plataformas:
+      if num_plataforma == ".":
+        pass
+      else:
+        self.plataformas_str += ("\n\t\t\t" + self.diccionario_plataformas[num_plataforma])
+    return self.plataformas_str
+    
+  def mostrar_detalles(self):
+    print(f"""\tTítulo:         {self.titulo}
+\taño:            {self.anyo}
+\tgéneros:        {self.definir_genero()}
+\tdirector:       {self.director}
+\tactores:        {self.actor1} y {self.actor2}
+\tduración:       {self.duracion} minutos
+\tdisponible en:  {self.definir_plataformas()}""")
