@@ -74,10 +74,10 @@ class Pelicula(Producto):
 
 class Animacion(Producto):
   
-  def __init__(self, ID_producto, titulo, anyo, genero, calificacion, plataformas, duracion, studio):
+  def __init__(self, ID_producto, titulo, anyo, genero, calificacion, plataformas, studio, duracion):
     super().__init__(ID_producto, titulo, anyo, genero, calificacion, plataformas)
-    self.duracion = duracion
     self.studio   = studio
+    self.duracion = duracion
   
   def definir_genero(self):
     self.genero_str = self.diccionario_generos[self.genero]
