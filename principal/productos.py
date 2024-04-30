@@ -72,7 +72,7 @@ class Pelicula(Producto):
 \tduración:       {self.duracion} minutos
 \tdisponible en:  {self.definir_plataformas()}""")
 
-#class Animacion(Producto):
+class Animacion(Producto):
   
   def __init__(self, ID_producto, titulo, anyo, genero, calificacion, plataformas, duracion, studio):
     super().__init__(ID_producto, titulo, anyo, genero, calificacion, plataformas)
@@ -99,7 +99,7 @@ class Pelicula(Producto):
 \tstudio:         {self.studio}
 \tdisponible en:  {self.definir_plataformas()}""")
     
-#class Serie(Producto):
+class Serie(Producto):
 
   def __init__(self, ID_producto, titulo, anyo, genero, calificacion, plataformas, actor1, actor2, num_temporadas):
     super().__init__(ID_producto, titulo, anyo, genero, calificacion, plataformas)
