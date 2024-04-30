@@ -1,3 +1,9 @@
+#Proyecto Final: Recomendar qué ver en plataformas de streaming.
+#Primer cuatrimestre 2024, Introducción a la Programación.
+#Alumno: Antonio Reyes.
+
+#Archivo con la clase Resultado, que maneja la presentación de los resultados de la búsqueda de recomendaciones.
+
 from productos import Pelicula, Animacion, Serie
 
 class Resultado():

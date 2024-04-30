@@ -1,10 +1,16 @@
+#Proyecto Final: Recomendar qué ver en plataformas de streaming.
+#Primer cuatrimestre 2024, Introducción a la Programación.
+#Alumno: Antonio Reyes.
+
+#Archivo con las pruebas unitarias para las clases correspondientes a los productos.
+
 import unittest
 
-from principal.productos import Producto, Pelicula #, Video, Cancion
+from principal.productos import Producto, Pelicula, Animacion, Serie
 
 class TestPelicula(unittest.TestCase):
     def test_pelicula_instance_of_producto(self):
-        pelicula = Pelicula("1111", "Fight Club", "1999", "10", "10", "1.3.5", "David Fincher", "Brad Pitt", "Edward Norton", "Accion")
+        
         self.assertIsInstance(pelicula, Producto)
 
     def test_generaro(self):

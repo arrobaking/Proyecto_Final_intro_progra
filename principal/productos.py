@@ -1,8 +1,8 @@
-#Proyecto Final: Recomendar qué ver en plataformas de streaming
+#Proyecto Final: Recomendar qué ver en plataformas de streaming.
 #Primer cuatrimestre 2024, Introducción a la Programación.
-#Alumno: Antonio Reyes
+#Alumno: Antonio Reyes.
 
-#Archivo con las clases para los formatos de productos: Película, Animación o Serie.
+#Archivo con las clases para los formatos de productos: Película, Animación o Serie (que heredan de la clase Producto).
 
 class Producto:
   

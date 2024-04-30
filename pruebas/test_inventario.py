@@ -1,3 +1,9 @@
+#Proyecto Final: Recomendar qué ver en plataformas de streaming.
+#Primer cuatrimestre 2024, Introducción a la Programación.
+#Alumno: Antonio Reyes.
+
+#Archivo con las pruebas unitarias para la clase Inventario.
+
 import unittest
 
 from principal.inventario import Producto, Pelicula #, Video, Cancion

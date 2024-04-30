@@ -1,5 +1,10 @@
+#Proyecto Final: Recomendar qué ver en plataformas de streaming.
+#Primer cuatrimestre 2024, Introducción a la Programación.
+#Alumno: Antonio Reyes.
+
+#Archivo con las clase Main, que maneja el menú principal y la ejecución general del programa.
+
 from inventario import Inventario
-from productos import Pelicula
 
 class Main():
   

@@ -1,4 +1,8 @@
+#Proyecto Final: Recomendar qué ver en plataformas de streaming.
+#Primer cuatrimestre 2024, Introducción a la Programación.
+#Alumno: Antonio Reyes.
 
+#Archivo con la clase Inventario, que maneja la búsqueda de recomendaciones a través de los archivos csv con la información de los productos.
 
 import csv
 
