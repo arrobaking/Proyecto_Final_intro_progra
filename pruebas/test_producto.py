@@ -86,7 +86,7 @@ class TestProducto(unittest.TestCase):
         ID = pelicula.ID_producto
         self.assertNotEqual(ID, "2023")
 
-    def test_instance_of_producto_animacion(self):################
+    def test_instance_of_producto_animacion(self):
         self.assertIsInstance(animacion, Producto)
 
     def test_genero_animacion(self):
@@ -105,7 +105,7 @@ class TestProducto(unittest.TestCase):
         ID = animacion.ID_producto
         self.assertNotEqual(ID, "2008")
 
-    def test_instance_of_producto_serie(self):################
+    def test_instance_of_producto_serie(self):
         self.assertIsInstance(serie, Producto)
 
     def test_genero_serie(self):
