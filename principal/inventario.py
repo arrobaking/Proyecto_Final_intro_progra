@@ -11,9 +11,6 @@ class Inventario():
     self.archivo_animaciones  = archivo_animaciones
     self.archivo_series       = archivo_series
 
-    #self.criterios = [formato, self.genero, self.tipo_artista, self.artista]
-    #ID,Titulo,Anyo,Genero,Calificacion,Plataformas,Director,Actor1,Actor2,Duracion
-
   def buscar(self, criterios):
     self.criterios = criterios
     if self.criterios[0]    == 1: #formato es película
