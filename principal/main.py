@@ -29,12 +29,12 @@ class Main():
       self.operacion = int(input("Operación: "))
 
       if (self.operacion == 0):
-        print("Ha decidido cerrar el programa.")
+        print("\nHa decidido cerrar el programa.")
         PIN = int(input("Escriba el PIN: "))
         if PIN==self.PINdiario:
           break
         else:
-          print("PIN incorrecto. Regresando al inicio.")
+          print("\nPIN incorrecto. Regresando al inicio.")
           self.operacion = 3
 
       elif (self.operacion == 1):
@@ -48,10 +48,10 @@ class Main():
         print(f"\nMelange Suggestions (R) es una plataforma creada por Antonio Reyes en abril de 2024 usando lenguaje Python.")
       
       else:
-        print("Opción incorrecta. Regresando al inicio.\n")
+        print("\nOpción incorrecta. Regresando al inicio.\n")
 
   def recolectar_criterios(self, formato):
-    print("""¿Cuál es el género que le suena mejor en este momento?
+    print("""\n¿Cuál es el género que le suena mejor en este momento?
 \t1)  Comedia.
 \t2)  Drama.
 \t3)  Acción.

@@ -49,7 +49,8 @@ class Inventario():
         if (fila[6] == self.criterios[3]): #director
           self.writer_previo_2.writerow(fila)
     elif int(self.criterios[2]) == 3: #no se va a realizar búsqueda por artista
-      self.previo_2 == self.previo_1
+      for fila in self.reader_previo_1:
+        self.writer_previo_2.writerow(fila)
     self.previo_1.close()
     self.previo_2.close()
 
@@ -106,7 +107,8 @@ class Inventario():
         if fila[6] == self.criterios[3]:
           self.writer_previo_2.writerow(fila)
     elif int(self.criterios[2]) == 3: #no se va a realizar búsqueda por artista
-      self.previo_2 == self.previo_1
+      for fila in self.reader_previo_1:
+        self.writer_previo_2.writerow(fila)
     self.previo_1.close()
     self.previo_2.close()
 
@@ -142,7 +144,7 @@ class Inventario():
     
     return self.recomendaciones
   
-  def buscar_series(self):############################################################
+  def buscar_series(self):
     self.recomendaciones = []
     self.info_series = open(self.archivo_series, mode="r+")
     self.reader_series  = csv.reader(self.info_series,delimiter=",")
@@ -163,7 +165,8 @@ class Inventario():
         if (fila[6] == self.criterios[3] or fila[7] == self.criterios[3]): #actor1 o actor2
           self.writer_previo_2.writerow(fila)
     elif int(self.criterios[2]) == 3: #no se va a realizar búsqueda por artista
-      self.previo_2 == self.previo_1
+      for fila in self.reader_previo_1:
+        self.writer_previo_2.writerow(fila)
     self.previo_1.close()
     self.previo_2.close()
 
