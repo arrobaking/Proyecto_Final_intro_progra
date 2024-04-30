@@ -1,4 +1,4 @@
-from productos import Pelicula
+from productos import Pelicula, Animacion, Serie
 
 class Resultado():
   def __init__(self, recomendaciones, formato):
@@ -19,7 +19,7 @@ class Resultado():
         self.mostrar_res_serie()
 
   def mostrar_res_pelicula(self):
-    print("\nBasado en sus criterios, las recomendaciones de películas serían:")
+    print("\nBasado en sus criterios, la(s) recomendaciones de películas (\"live action\") serían:")
     for numero in range(self.cantidad_propuestas):
       self.pelicula = Pelicula(self.recomendaciones[numero][0],
                                self.recomendaciones[numero][1],
@@ -36,35 +36,32 @@ class Resultado():
       print("")
 
   def mostrar_res_animacion(self):
-    print("\nBasado en sus criterios, las recomendaciones de películas serían:")
+    print("\nBasado en sus criterios, la(s) recomendaciones de largometrajes de animación serían:")
     for numero in range(self.cantidad_propuestas):
-      self.pelicula = Pelicula(self.recomendaciones[numero][0],
-                               self.recomendaciones[numero][1],
-                               self.recomendaciones[numero][2],
-                               self.recomendaciones[numero][3],
-                               self.recomendaciones[numero][4],
-                               self.recomendaciones[numero][5],
-                               self.recomendaciones[numero][6],
-                               self.recomendaciones[numero][7],
-                               self.recomendaciones[numero][8],
-                               self.recomendaciones[numero][9])
+      self.animacion = Animacion(self.recomendaciones[numero][0],
+                                 self.recomendaciones[numero][1],
+                                 self.recomendaciones[numero][2],
+                                 self.recomendaciones[numero][3],
+                                 self.recomendaciones[numero][4],
+                                 self.recomendaciones[numero][5],
+                                 self.recomendaciones[numero][6],
+                                 self.recomendaciones[numero][7])
       print(f"---------- Propuesta número {numero+1} ----------")
-      self.pelicula.mostrar_detalles()
+      self.animacion.mostrar_detalles()
       print("")
 
   def mostrar_res_serie(self):
-    print("\nBasado en sus criterios, las recomendaciones de películas serían:")
+    print("\nBasado en sus criterios, la(s) recomendaciones de series serían:")
     for numero in range(self.cantidad_propuestas):
-      self.pelicula = Pelicula(self.recomendaciones[numero][0],
-                               self.recomendaciones[numero][1],
-                               self.recomendaciones[numero][2],
-                               self.recomendaciones[numero][3],
-                               self.recomendaciones[numero][4],
-                               self.recomendaciones[numero][5],
-                               self.recomendaciones[numero][6],
-                               self.recomendaciones[numero][7],
-                               self.recomendaciones[numero][8],
-                               self.recomendaciones[numero][9])
+      self.serie = Serie(self.recomendaciones[numero][0],
+                         self.recomendaciones[numero][1],
+                         self.recomendaciones[numero][2],
+                         self.recomendaciones[numero][3],
+                         self.recomendaciones[numero][4],
+                         self.recomendaciones[numero][5],
+                         self.recomendaciones[numero][6],
+                         self.recomendaciones[numero][7],
+                         self.recomendaciones[numero][8])
       print(f"---------- Propuesta número {numero+1} ----------")
-      self.pelicula.mostrar_detalles()
+      self.serie.mostrar_detalles()
       print("")

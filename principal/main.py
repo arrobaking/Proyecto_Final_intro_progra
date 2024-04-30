@@ -67,8 +67,13 @@ class Main():
       print("\n¿Para cuál tipo de artista desea que se realice la búsqueda?\n\t1) Actor/actriz.\n\t2) Director.\n\t3) Ninguno.")
       self.tipo_artista = int(input("Tipo de artista: "))
     elif formato == 2:
-      self.tipo_artista = 3
-      self.artista = ""
+      print("\n¿Desea incluir algún studio de animación en la búsqueda?\n\t1) Sí.\n\t2) No.")
+      self.eleccion = int(input("Elección: "))
+      if self.eleccion == 1:
+        self.tipo_artista = 1
+      else:
+        self.tipo_artista = 3
+        self.artista = ""
     elif formato == 3:
       print("\n¿Desea incluir algún actor/actriz en la búsqueda?\n\t1) Sí.\n\t2) No.")
       self.eleccion = int(input("Elección: "))
@@ -78,7 +83,10 @@ class Main():
         self.tipo_artista = 3
         self.artista = ""
     if self.tipo_artista == 1:
-      self.artista = input("Ingrese el nombre del actor/actriz que desea incluir en su búsqueda: ")
+      if (formato == 1 or formato == 3):
+        self.artista = input("Ingrese el nombre del actor/actriz que desea incluir en su búsqueda: ")
+      elif formato == 2:
+        self.artista = input("Ingrese el nombre del studio de animación que desea incluir en su búsqueda: ")
     elif self.tipo_artista == 2:
       self.artista = input("Ingrese el nombre del(la) director(a) que desea incluir en su búsqueda: ")
     self.criterios = [formato, self.genero, self.tipo_artista, self.artista]
